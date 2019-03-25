@@ -1,12 +1,17 @@
 package marsRover
 
-class Rover (position: Position, direction: Direction){
-    var position: Position? = null
+class Rover (initialPosition: Position, initialDirection: Direction){
+    var position: Position
         private set
-    var direction: Direction? = null
+    var direction: Direction
         private set
 
+    init {
+        position = initialPosition
+        direction = initialDirection
+    }
+
     fun move() {
-        position = Position(0,1)
+        position = Position(0,position.y + 1)
     }
 }
