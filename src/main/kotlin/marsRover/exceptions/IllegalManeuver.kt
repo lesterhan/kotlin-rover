@@ -1,4 +1,4 @@
-package marsRover
+package marsRover.exceptions
 
 import java.lang.Exception
 

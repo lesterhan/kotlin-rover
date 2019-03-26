@@ -3,7 +3,9 @@ package marsRover
 import io.kotlintest.should
 import io.kotlintest.shouldBe
 import io.kotlintest.specs.StringSpec
-import marsRover.Direction.*
+import marsRover.entities.Direction.*
+import marsRover.entities.Rover
+import marsRover.entities.Vector
 
 class RoverTest : StringSpec({
     "move" should {
@@ -92,7 +94,7 @@ class RoverTest : StringSpec({
     "Rover.fromString" should {
         "create a correct rover with given parameter" {
             val rover = Rover.fromString("1 2 N")
-            rover.vector shouldBe Vector(1,2)
+            rover.vector shouldBe Vector(1, 2)
             rover.direction shouldBe N
         }
     }

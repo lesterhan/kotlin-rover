@@ -1,6 +1,6 @@
-package marsRover
+package marsRover.entities
 
-import marsRover.Direction.*
+import marsRover.entities.Direction.*
 
 class Rover(initialVector: Vector, initialDirection: Direction) {
     var vector: Vector
@@ -19,7 +19,7 @@ class Rover(initialVector: Vector, initialDirection: Direction) {
             val x = splitString[0].toInt()
             val y = splitString[1].toInt()
             val direction = Direction.valueOf(splitString[2])
-            return Rover(Vector(x,y), direction)
+            return Rover(Vector(x, y), direction)
         }
     }
 

@@ -1,11 +1,15 @@
 package marsRover
 
 import io.kotlintest.should
+import io.kotlintest.shouldBe
 import io.kotlintest.shouldThrow
 import io.kotlintest.specs.StringSpec
 import io.mockk.mockk
 import io.mockk.verify
-import marsRover.Direction.*
+import marsRover.entities.Direction.*
+import marsRover.entities.Rover
+import marsRover.entities.Vector
+import marsRover.exceptions.IllegalManeuver
 
 class RoverControllerTest : StringSpec({
 
@@ -51,10 +55,19 @@ class RoverControllerTest : StringSpec({
         }
     }
 
+    "report" should {
+        "output current rover position and direction" {
+            val rover = Rover(Vector(1,1), E)
+            val rc = RoverController(Vector(5,4), rover)
+            rc.commandRover("MLMLMRMRMML")
+            rc.report() shouldBe "3 3 N"
+        }
+    }
+
     "RoverController" should {
         "not move Rover beyond plateau dimension" {
-            val rover = Rover(Vector(1,1), N)
-            val rc = RoverController(Vector(3,3), rover)
+            val rover = Rover(Vector(1, 1), N)
+            val rc = RoverController(Vector(3, 3), rover)
 
             shouldThrow<IllegalManeuver> {
                 rc.commandRover("MMM")

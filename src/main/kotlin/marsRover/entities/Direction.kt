@@ -1,4 +1,4 @@
-package marsRover
+package marsRover.entities
 
 enum class Direction(val direction: String) {
     N("N"),

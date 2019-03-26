@@ -1,5 +1,9 @@
 package marsRover
 
+import marsRover.entities.Rover
+import marsRover.entities.Vector
+import marsRover.exceptions.IllegalManeuver
+
 class RoverController(
     val plateauDimention: Vector,
     private val rover: Rover
@@ -19,5 +23,9 @@ class RoverController(
         if (rover.vector.x > plateauDimention.x || rover.vector.y > plateauDimention.y) {
             throw IllegalManeuver()
         }
+    }
+
+    fun report(): String {
+        return """${rover.vector.x} ${rover.vector.y} ${rover.direction}"""
     }
 }
