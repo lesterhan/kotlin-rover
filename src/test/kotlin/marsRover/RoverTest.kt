@@ -1,33 +1,22 @@
 package marsRover
 
-import io.kotlintest.Spec
+import io.kotlintest.should
 import io.kotlintest.shouldBe
-import io.kotlintest.specs.AnnotationSpec
-import io.kotlintest.specs.ShouldSpec
+import io.kotlintest.specs.StringSpec
 
-class RoverTest : AnnotationSpec(){
-    private var rover: Rover
+class RoverTest : StringSpec({
+    "Rover.move" should {
+        "increment y once when facing N" {
+            val rover = Rover(Position(0, 0), Direction.NORTH)
+            rover.move()
+            rover.position shouldBe Position(0, 0 + 1)
+        }
 
-    init {
-        rover = Rover(Position(2, 2), Direction.NORTH)
+        "increment two times when moving twice" {
+            val rover = Rover(Position(0, 0), Direction.NORTH)
+            rover.move()
+            rover.move()
+            rover.position shouldBe Position(0, 0 + 2)
+        }
     }
-
-    @BeforeEach
-    fun beforeEach() {
-        rover = Rover(Position(2, 2), Direction.NORTH)
-    }
-
-
-    @Test
-    fun incrementYWhileFacingNorth() {
-        rover.move()
-        rover.position shouldBe Position(2, 2 + 1)
-    }
-
-    @Test
-    fun incrementTwiceWhenMovingTwice() {
-        rover.move()
-        rover.move()
-        rover.position shouldBe Position(2, 2 + 2)
-    }
-}
+})
