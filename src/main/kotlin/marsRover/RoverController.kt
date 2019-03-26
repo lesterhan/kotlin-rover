@@ -2,7 +2,7 @@ package marsRover
 
 class RoverController(
     val plateauDimention: Vector,
-    val rover: Rover
+    private val rover: Rover
 ) {
     fun commandRover(commandString: String) {
         for(command in commandString){
@@ -11,6 +11,13 @@ class RoverController(
                 'L' -> rover.turnLeft()
                 'R' -> rover.turnRight()
             }
+            throwExceptionIfRoverOutOfBounds()
+        }
+    }
+
+    private fun throwExceptionIfRoverOutOfBounds() {
+        if (rover.vector.x > plateauDimention.x || rover.vector.y > plateauDimention.y) {
+            throw IllegalManeuver()
         }
     }
 }

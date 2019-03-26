@@ -1,6 +1,7 @@
 package marsRover
 
 import io.kotlintest.should
+import io.kotlintest.shouldThrow
 import io.kotlintest.specs.StringSpec
 import io.mockk.mockk
 import io.mockk.verify
@@ -46,6 +47,17 @@ class RoverControllerTest : StringSpec({
                 rover.move()
                 rover.move()
                 rover.turnRight()
+            }
+        }
+    }
+
+    "RoverController" should {
+        "not move Rover beyond plateau dimension" {
+            val rover = Rover(Vector(1,1), N)
+            val rc = RoverController(Vector(3,3), rover)
+
+            shouldThrow<IllegalManeuver> {
+                rc.commandRover("MMM")
             }
         }
     }
