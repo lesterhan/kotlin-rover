@@ -38,4 +38,29 @@ class RoverTest : StringSpec({
         }
 
     }
+    "Rover.turnLeft" should {
+        "Turn to W when facing N" {
+            val rover = Rover(Position(0, 0), Direction.NORTH)
+            rover.turnLeft()
+            rover.direction shouldBe Direction.WEST
+        }
+
+        "Turn to S when facing W" {
+            val rover = Rover(Position(0, 0), Direction.WEST)
+            rover.turnLeft()
+            rover.direction shouldBe Direction.SOUTH
+        }
+
+        "Turn to E when facing S" {
+            val rover = Rover(Position(0, 0), Direction.SOUTH)
+            rover.turnLeft()
+            rover.direction shouldBe Direction.EAST
+        }
+
+        "Turn to N when facing E" {
+            val rover = Rover(Position(0, 0), Direction.EAST)
+            rover.turnLeft()
+            rover.direction shouldBe Direction.NORTH
+        }
+    }
 })

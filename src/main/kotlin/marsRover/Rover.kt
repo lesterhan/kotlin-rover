@@ -18,6 +18,14 @@ class Rover(initialPosition: Position, initialDirection: Direction) {
             Direction.EAST -> Position(position.x + 1, position.y)
             Direction.WEST -> Position(position.x - 1, position.y)
         }
+    }
 
+    fun turnLeft() {
+        direction = when (direction) {
+            Direction.NORTH -> Direction.WEST
+            Direction.WEST -> Direction.SOUTH
+            Direction.SOUTH -> Direction.EAST
+            Direction.EAST -> Direction.NORTH
+        }
     }
 }
