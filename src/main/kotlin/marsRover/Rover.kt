@@ -13,6 +13,16 @@ class Rover(initialPosition: Position, initialDirection: Direction) {
         direction = initialDirection
     }
 
+    companion object {
+        fun fromString(initializationString: String): Rover {
+            val splitString = initializationString.split(' ')
+            val x = splitString[0].toInt()
+            val y = splitString[1].toInt()
+            val direction = Direction.valueOf(splitString[2])
+            return Rover(Position(x,y), direction)
+        }
+    }
+
     fun move() {
         position = when (direction) {
             N -> Position(position.x, position.y + 1)

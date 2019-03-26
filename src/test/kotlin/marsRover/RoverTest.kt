@@ -89,4 +89,11 @@ class RoverTest : StringSpec({
             rover.direction shouldBe N
         }
     }
+    "Rover.fromString" should {
+        "create a correct rover with given parameter" {
+            val rover = Rover.fromString("1 2 N")
+            rover.position shouldBe Position(1,2)
+            rover.direction shouldBe N
+        }
+    }
 })
