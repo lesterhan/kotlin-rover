@@ -4,7 +4,7 @@ This is an implementation of Mars Rover in Kotlin that helped me learn the langu
 
 Rules
  - Strictly TDDed
- - Small meaningful commits
+ - Small commits
  - No refactoring while red
 
 The problem statement can be found here: https://archive.codeplex.com/?p=marsroverexercise
