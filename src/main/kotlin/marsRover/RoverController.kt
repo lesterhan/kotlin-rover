@@ -10,7 +10,12 @@ class RoverController(val plateauLength: Int, val plateauWidth: Int) {
     }
 
     fun establishRover(createCommand: String) {
-        rovers.add(Rover(Position(1,2), NORTH))
+        val splitString = createCommand.split(' ')
+        val x = splitString[0].toInt()
+        val y = splitString[1].toInt()
+        val direction = Direction.valueOf(splitString[2])
+
+        rovers.add(Rover(Position(x,y), direction))
     }
 
 

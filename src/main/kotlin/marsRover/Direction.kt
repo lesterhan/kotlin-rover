@@ -1,8 +1,8 @@
 package marsRover
 
 enum class Direction(val direction: String) {
-    NORTH("N"),
-    EAST("E"),
-    SOUTH("S"),
-    WEST("W")
+    N("N"),
+    E("E"),
+    S("S"),
+    W("W")
 }
