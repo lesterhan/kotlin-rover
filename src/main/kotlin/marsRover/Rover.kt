@@ -12,6 +12,6 @@ class Rover (initialPosition: Position, initialDirection: Direction){
     }
 
     fun move() {
-        position = Position(0,position.y + 1)
+        position = Position(position.x,position.y + 1)
     }
 }
