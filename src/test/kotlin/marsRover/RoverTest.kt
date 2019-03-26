@@ -6,7 +6,7 @@ import io.kotlintest.specs.StringSpec
 import marsRover.Direction.*
 
 class RoverTest : StringSpec({
-    "Rover.move" should {
+    "move" should {
         "increment y once when facing N" {
             val rover = Rover(Position(0, 0), N)
             rover.move()
@@ -39,7 +39,7 @@ class RoverTest : StringSpec({
         }
 
     }
-    "Rover.turnLeft" should {
+    "turnLeft" should {
         "Turn to W when facing N" {
             val rover = Rover(Position(0, 0), N)
             rover.turnLeft()
@@ -64,7 +64,7 @@ class RoverTest : StringSpec({
             rover.direction shouldBe N
         }
     }
-    "Rover.turnRight" should {
+    "turnRight" should {
         "Turn to E when facing N" {
             val rover = Rover(Position(0, 0), N)
             rover.turnRight()
