@@ -2,14 +2,14 @@ package marsRover
 
 import marsRover.Direction.*
 
-class Rover(initialPosition: Position, initialDirection: Direction) {
-    var position: Position
+class Rover(initialVector: Vector, initialDirection: Direction) {
+    var vector: Vector
         private set
     var direction: Direction
         private set
 
     init {
-        position = initialPosition
+        vector = initialVector
         direction = initialDirection
     }
 
@@ -19,16 +19,16 @@ class Rover(initialPosition: Position, initialDirection: Direction) {
             val x = splitString[0].toInt()
             val y = splitString[1].toInt()
             val direction = Direction.valueOf(splitString[2])
-            return Rover(Position(x,y), direction)
+            return Rover(Vector(x,y), direction)
         }
     }
 
     fun move() {
-        position = when (direction) {
-            N -> Position(position.x, position.y + 1)
-            S -> Position(position.x, position.y - 1)
-            E -> Position(position.x + 1, position.y)
-            W -> Position(position.x - 1, position.y)
+        vector = when (direction) {
+            N -> Vector(vector.x, vector.y + 1)
+            S -> Vector(vector.x, vector.y - 1)
+            E -> Vector(vector.x + 1, vector.y)
+            W -> Vector(vector.x - 1, vector.y)
         }
     }
 
